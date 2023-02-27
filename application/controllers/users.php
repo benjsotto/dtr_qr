@@ -129,11 +129,15 @@ class Users extends CI_Controller {
         
         function delete($userid)
         {
-                $status = $this->mdl_user->delete_user_account($userid);
-                if($status==1){
-                    $this->session->set_flashdata('success','User account successfully deleted!');
+                if($userid!=$this->session->userdata('userid')){
+                    $status = $this->mdl_user->delete_user_account($userid);
+                    if($status==1){
+                        $this->session->set_flashdata('success','User account successfully deleted!');
+                    } else {
+                        $this->session->set_flashdata('error','Deleting user account failed!');
+                    }
                 } else {
-                    $this->session->set_flashdata('error','Deleting user account failed!');
+                    $this->session->set_flashdata('error','Error! You cannot delete your own account.');
                 }
                 redirect('users','refresh');
         }
