@@ -154,7 +154,7 @@ class Mdl_User extends CI_Model
                 );
                 if($this->input->post('password')!=''){
                     $data += array(
-                        'user_password' => md5($this->input->post('user_password'))
+                        'user_password' => md5($this->input->post('password'))
                     );
                 }
                 
