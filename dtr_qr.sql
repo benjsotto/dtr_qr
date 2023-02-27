@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2023 at 04:26 PM
+-- Generation Time: Feb 27, 2023 at 05:46 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 5.6.40
 
@@ -98,7 +98,11 @@ INSERT INTO `history` (`history_id`, `history_date`, `history_name`, `history_ca
 (7, '2023-02-26 14:36:39', '3', 'EMPLOYEES', 'ADD', NULL, 1),
 (8, '2023-02-26 14:37:45', '3', 'USER ACCOUNTS', 'DELETE', ' ', 1),
 (9, '2023-02-26 17:54:48', '1', 'USER ACCOUNTS', 'ADD', NULL, 1),
-(10, '2023-02-26 18:01:27', '1', 'USER ACCOUNTS', 'UPDATE', NULL, 1);
+(10, '2023-02-26 18:01:27', '1', 'USER ACCOUNTS', 'UPDATE', NULL, 1),
+(11, '2023-02-27 17:37:56', '2', 'USER ACCOUNTS', 'ADD', NULL, 1),
+(12, '2023-02-27 17:38:04', '1', 'USER ACCOUNTS', 'UPDATE', NULL, 1),
+(13, '2023-02-27 17:38:51', '1', 'USER ACCOUNTS', 'UPDATE', NULL, 1),
+(14, '2023-02-27 17:40:37', '2', 'USER ACCOUNTS', 'UPDATE', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -127,7 +131,17 @@ INSERT INTO `logs` (`logs_id`, `logs_date`, `logs_user`, `logs_action`) VALUES
 (7, '2023-02-27 11:19:28', 1, 'LOGIN'),
 (8, '2023-02-27 11:20:51', 1, 'LOGOUT'),
 (9, '2023-02-27 11:20:59', 1, 'LOGIN'),
-(10, '2023-02-27 15:14:21', 1, 'LOGIN');
+(10, '2023-02-27 15:14:21', 1, 'LOGIN'),
+(11, '2023-02-27 17:38:53', 1, 'LOGOUT'),
+(12, '2023-02-27 17:39:00', 1, 'LOGIN ATTEMPT'),
+(13, '2023-02-27 17:39:09', 1, 'LOGIN ATTEMPT'),
+(14, '2023-02-27 17:39:15', 2, 'LOGIN ATTEMPT'),
+(15, '2023-02-27 17:40:24', 1, 'LOGIN'),
+(16, '2023-02-27 17:41:56', 1, 'LOGOUT'),
+(17, '2023-02-27 17:42:05', 2, 'LOGIN'),
+(18, '2023-02-27 17:44:44', 2, 'LOGOUT'),
+(19, '2023-02-27 17:44:50', 1, 'LOGIN'),
+(20, '2023-02-27 17:44:53', 1, 'LOGOUT');
 
 -- --------------------------------------------------------
 
@@ -151,7 +165,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `user_name`, `user_password`, `user_type`, `created_by`, `datetime_added`, `datetime_modified`, `last_login`) VALUES
-(1, 'admin11', 'c665f1710dd6a24c9e16fb9ba3d6bf8f', 1, 1, '2023-02-26 17:54:48', '2023-02-26 18:01:27', '2023-02-27 15:14:21');
+(1, 'superadmin', 'ae5b8414e6241f81dc50fc320720389f', 1, 1, '2023-02-26 17:54:48', '2023-02-27 17:38:51', '2023-02-27 17:44:50'),
+(2, 'admin', '306619b3398d9c783f30c793f1ad719e', 2, 1, '2023-02-27 17:37:56', '2023-02-27 17:40:37', '2023-02-27 17:42:05');
 
 -- --------------------------------------------------------
 
@@ -226,25 +241,25 @@ ALTER TABLE `dtr`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id_employee` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_employee` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `logs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_types`
