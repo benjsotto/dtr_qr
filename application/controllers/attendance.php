@@ -102,59 +102,6 @@ class Attendance extends CI_Controller {
                 $this->load->view('attendance/attendance_form',$data);  
 	}
 
-        
-        function add()
-        {
-                if (!$this->mdl_attendance->validate_employee()) {
-                    
-                        $this->_form();
-                
-                } else {
-                    
-                        $res = $this->mdl_attendance->save_employee();
-                        
-                        if($res){
-                            $this->session->set_flashdata('success','Employee successfully saved!');
-                        } else {
-                            $this->session->set_flashdata('error','Something went wrong while saving employee.');
-                        }
-                        redirect('employees','refresh');
-                    
-                }
-        }
-        
-        function edit($employee_id)
-        {
-                if (!$this->mdl_attendance->validate_employee($employee_id)) {
-                    
-                        $this->_form($employee_id);
-                
-                } else {
-                    
-                        $res = $this->mdl_attendance->save_employee($employee_id);
-                        if($res){
-                            $this->session->set_flashdata('success','Employee successfully supdated!');
-                        } else {
-                            $this->session->set_flashdata('error','Something went wrong while updating employee.');
-                        }
-                        redirect('employees','refresh');
-                    
-                }
-        }
-        
-        
-        function delete($employee_id)
-        {
-                $res = $this->mdl_attendance->delete_employee($employee_id);
-                if($res==1){
-                    $this->session->set_flashdata('success','Employee successfully deleted!');
-                } else {
-                    $this->session->set_flashdata('error','Deleting employee failed!');
-                }
-                redirect('employees','refresh');
-        }
-        
-
 }
 
 ?>
