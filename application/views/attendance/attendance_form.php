@@ -24,13 +24,11 @@
                         </div>
                         <div class="title_right">
                                 <ul class="nav navbar-right panel_toolbox" style="">
-                                    <?php //if(@$access->add){ ?>
                                         <li style="">
                                             <a href="<?php echo site_url('attendance'); ?>" class="btn btn-app" title="View Employees Time In & Out">
                                                 <i class="glyphicon glyphicon-calendar" style="padding-bottom: 5px; color: #26B99A !important;"></i> <span>View DTR List</span>
                                             </a>
                                         </li>
-                                    <?php //} ?>
                                 </ul>
                         </div>
                 </div>
@@ -121,22 +119,12 @@
     <!--<script src="<?php // echo assets('vendors/iCheck/icheck.min.js'); ?>"></script>-->
     
 
-<link href="<?php echo base_url('assets/my_js/loadmask/jquery.loadmask.css'); ?>" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="<?php echo base_url('assets/my_js/loadmask/jquery.loadmask.min.js'); ?>"></script>
-
 <script src="<?php echo base_url('assets/my_js/myscript/my_table.js'); ?>"></script>
 <!--<script src="<?php // echo base_url('assets/my_js/myscript/customers.js'); ?>"></script>-->
 
 
 <script type="text/javascript">
         $(document).ready(function(){
-                
-                url = '<?php echo site_url('employees/load_employees_table') ?>';
-                load_listevent('','');
-
-                $('#search_event_list').on('change',function(){
-                        load_listevent('','');
-                });
                 
                 $('.btn_dtr_type').on('click',function(){
                         var dtr_type = $(this).attr('dtr_type');
