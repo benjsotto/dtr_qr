@@ -94,8 +94,6 @@ class Mdl_Employee extends CI_Model
                     'history_category'=>'EMPLOYEES',
                     'history_action'=>$action,
                     'history_user'=>$this->session->userdata('userid'),
-                    'history_ip_address'=>$this->session->userdata('ip_address'),
-                    'history_comp'=>gethostbyaddr($_SERVER['REMOTE_ADDR']),
                 );
                 $this->db->insert('history',$his_data);
                 
@@ -118,8 +116,6 @@ class Mdl_Employee extends CI_Model
                     'history_action'=>'DELETE',
                     'history_remarks'=>@$details[0]->first_name.' '.@$details[0]->last_name,
                     'history_user'=>$this->session->userdata('userid'),
-                    'history_ip_address'=>$this->session->userdata('ip_address'),
-                    'history_comp'=>gethostbyaddr($_SERVER['REMOTE_ADDR']),
                 );
                 $this->db->insert('history',$his_data);
                 

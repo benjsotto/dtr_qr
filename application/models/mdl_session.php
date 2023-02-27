@@ -29,8 +29,6 @@ class Mdl_Session extends CI_Model{
                     'logs_date'=>date('Y-m-d H:i:s'),
                     'logs_user'=>$this->session->userdata('userid'),
                     'logs_action'=>'LOGIN',
-                    'logs_ip_address'=>$this->session->userdata('ip_address'),
-                    'logs_comp'=>gethostbyaddr($_SERVER['REMOTE_ADDR'])
                 );
                 $this->db->insert('logs',$data2);
         }
@@ -48,8 +46,6 @@ class Mdl_Session extends CI_Model{
                     'logs_date'=>date('Y-m-d H:i:s'),
                     'logs_user'=>$userid,
                     'logs_action'=>'LOGIN ATTEMPT',
-                    'logs_ip_address'=>$this->session->userdata('ip_address'),
-                    'logs_comp'=>gethostbyaddr($_SERVER['REMOTE_ADDR'])
                 );
                 $this->db->insert('logs',$data2);
         }
@@ -60,8 +56,6 @@ class Mdl_Session extends CI_Model{
                     'logs_date'=>date('Y-m-d H:i:s'),
                     'logs_user'=>$this->session->userdata('userid'),
                     'logs_action'=>'LOGOUT',
-                    'logs_ip_address'=>$this->session->userdata('ip_address'),
-                    'logs_comp'=>gethostbyaddr($_SERVER['REMOTE_ADDR'])
                 );
                 $this->db->insert('logs',$data2);
         }

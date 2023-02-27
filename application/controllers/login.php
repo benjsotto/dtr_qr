@@ -78,18 +78,6 @@ class Login extends CI_Controller {
                 redirect('login', 'refresh');
         }
         
-        
-        function save_password()
-        {
-                $this->mdl_session->save_password($_POST['password']);
-
-                $this->session->unset_userdata('password_expired');
-
-                $this->session->set_userdata('password_expired', 0);
-                        
-                $this->session->set_flashdata('success','New Password successfully saved.');
-                
-        }
                 
         
 }

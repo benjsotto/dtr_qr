@@ -163,7 +163,7 @@ class Mdl_User extends CI_Model
                 if($userid==''){
                     $data += array(
                         'datetime_added' => date('Y-m-d H:i:s'),
-                        'created_by' => 1//$this->session->userdata('userid')
+                        'created_by' => $this->session->userdata('userid')
                     );
                     $action = 'ADD';
                     $res= $this->db->insert('users',$data);
@@ -182,9 +182,7 @@ class Mdl_User extends CI_Model
                     'history_name'=>$userid,
                     'history_category'=>'USER ACCOUNTS',
                     'history_action'=>$action,
-                    'history_user'=>1,//$this->session->userdata('userid'),
-                    'history_ip_address'=>$this->session->userdata('ip_address'),
-                    'history_comp'=>gethostbyaddr($_SERVER['REMOTE_ADDR']),
+                    'history_user'=>$this->session->userdata('userid'),
                 );
                 $this->db->insert('history',$his_data);
                 $this->db->trans_complete();
@@ -206,8 +204,6 @@ class Mdl_User extends CI_Model
                     'history_action'=>'DELETE',
                     'history_remarks'=>@$details[0]->user_name,
                     'history_user'=>$this->session->userdata('userid'),
-                    'history_ip_address'=>$this->session->userdata('ip_address'),
-                    'history_comp'=>gethostbyaddr($_SERVER['REMOTE_ADDR']),
                 );
                 $this->db->insert('history',$his_data);
                 
